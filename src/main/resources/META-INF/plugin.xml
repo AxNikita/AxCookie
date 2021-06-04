@@ -1,0 +1,30 @@
+<idea-plugin>
+    <id>org.example.AxCookie</id>
+    <name>AxCookie</name>
+    <vendor email="support@axcompany.com" url="http://www.axcompany.com">AxCompany</vendor>
+
+    <description><![CDATA[
+    Plugin for save and share your code. Sending to mail and social networks.
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+<!--    <depends>com.intellij.modules.lang</depends>-->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+
+        <group id="SendCodeGroup">
+            <add-to-group group-id="EditorPopupMenu"/>
+            <add-to-group group-id="ConsoleEditorPopupMenu"/>
+
+            <action id="com.axproject.axcookie.action.SendCodeAction" class="com.axproject.axcookie.action.SendCodeAction"
+                    text="Send Code" icon="/icon/SendCodeIcon2.png"/>
+        </group>
+
+    </actions>
+</idea-plugin>
