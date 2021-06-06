@@ -23,7 +23,7 @@
             <add-to-group group-id="ConsoleEditorPopupMenu"/>
 
             <action id="com.axproject.axcookie.action.SendCodeAction" class="com.axproject.axcookie.action.SendCodeAction"
-                    text="Send Code" icon="/icon/SendCodeIcon2.png"/>
+                    text="Send Code" icon="/icon/send.png"/>
         </group>
 
     </actions>

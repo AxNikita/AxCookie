@@ -1,6 +1,7 @@
 package com.axproject.axcookie.action
 
-import com.axproject.axcookie.dialog.SampleDialogWrapper
+import com.axproject.axcookie.dialog.CodeDialogWrapper
+import com.axproject.axcookie.util.ValueUtils
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformDataKeys
@@ -13,26 +14,20 @@ class SendCodeAction : AnAction() {
         val editor = event.getData(PlatformDataKeys.EDITOR)
 
         if (editor == null) {
-            Messages.showMessageDialog("Ахтунг 1", "Code", Messages.getErrorIcon())
+            openErrorMessage(ValueUtils.ERROR_EDITOR)
         }
 
         val code = editor!!.selectionModel.selectedText
 
         if (code == null) {
-            Messages.showMessageDialog("Ахтунг 2", "Code", Messages.getErrorIcon())
+            openErrorMessage(ValueUtils.ERROR_CODE)
         }
 
-//        var code: String? = ""
-//
-//        try {
-//            code = URLEncoder.encode(selectedText, StandardCharsets.UTF_8.toString())
-//        } catch (e: UnsupportedEncodingException) {
-//            Messages.showMessageDialog("Ахтунг 3", "Code", Messages.getErrorIcon())
-//        }
+        CodeDialogWrapper(code!!).showAndGet()
+    }
 
-//        Messages.showMessageDialog(code, "Code", Messages.getInformationIcon())
-
-        SampleDialogWrapper(code!!).showAndGet()
+    private fun openErrorMessage(error: String) {
+        Messages.showMessageDialog(error, ValueUtils.ERROR_TITLE, Messages.getErrorIcon())
     }
 
 }
