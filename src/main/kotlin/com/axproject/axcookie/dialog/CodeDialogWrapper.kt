@@ -4,9 +4,10 @@ import com.axproject.axcookie.util.MailUtils
 import com.axproject.axcookie.util.ValueUtils
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.ui.Messages
-import java.awt.BorderLayout
-import java.awt.Dimension
-import java.awt.FlowLayout
+import java.awt.*
+import java.awt.datatransfer.StringSelection
+import java.util.*
+import java.util.Timer
 import javax.imageio.ImageIO
 import javax.swing.*
 
@@ -33,6 +34,8 @@ class CodeDialogWrapper(private val code: String) : DialogWrapper(true) {
         val codeComponent = JTextArea(code)
         codeComponent.preferredSize = Dimension(400, 350)
 
+        copyCodeToClipboard(code)
+
         return codeComponent
     }
 
@@ -40,8 +43,13 @@ class CodeDialogWrapper(private val code: String) : DialogWrapper(true) {
 
         val buttonsPanel = JPanel(FlowLayout())
 
+        val codeLabel = createCodeLabel()
+
+        buttonsPanel.add(codeLabel)
         buttonsPanel.add(createSendToMailButton())
         buttonsPanel.add(createCookieButton())
+
+        checkClipboardTimer(codeLabel)
 
         return buttonsPanel
     }
@@ -77,12 +85,36 @@ class CodeDialogWrapper(private val code: String) : DialogWrapper(true) {
         return button
     }
 
+    private fun createCodeLabel(): JLabel {
+
+        val label = JLabel(ValueUtils.LABEL_CHECK_TITLE)
+        label.foreground = Color.GREEN
+
+        return label
+    }
+
     private fun createButton(title: String, imageUrl: String, size: Dimension): JButton {
         //button.horizontalTextPosition = SwingConstants.LEFT
         val button = JButton(title)
         button.icon = ImageIcon(ImageIO.read(javaClass.classLoader.getResource(imageUrl)))
         button.preferredSize = size
         return button
+    }
+
+    private fun copyCodeToClipboard(code: String) {
+        val codeSelection = StringSelection(code)
+        val clipboard = Toolkit.getDefaultToolkit().systemClipboard
+        clipboard.setContents(codeSelection, null)
+    }
+
+    private fun checkClipboardTimer(label: JLabel) {
+        val timer = Timer()
+        timer.schedule(object : TimerTask() {
+            override fun run() {
+                label.isVisible = false
+                label.isEnabled = false
+            }
+        }, 1500)
     }
 
 }

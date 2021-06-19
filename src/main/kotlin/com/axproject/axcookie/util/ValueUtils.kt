@@ -16,6 +16,8 @@ class ValueUtils {
         const val MESSAGES_COOKIE_TITLE = "Cookie"
         const val MESSAGES_COOKIE_MESSAGE = "Cookie created!"
 
+        const val LABEL_CHECK_TITLE = "Your code added to the clipboard!"
+
         const val ERROR_TITLE = "Code"
         const val ERROR_EDITOR = "Error! Please contact the administrator."
         const val ERROR_CODE = "Selected code is null! Please enter the code."
