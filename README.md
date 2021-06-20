@@ -1,4 +1,4 @@
-#AxCookie Plugin for IntelliJ IDEA
+# AxCookie Plugin for IntelliJ IDEA
 Plugin for save and share your code. Sending to mail and social networks.
 
 ## General information
