@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>org.example.AxCookie</id>
+    <id>com.axproject.axcookie</id>
     <name>AxCookie</name>
     <vendor email="axprojectgroup@gmail.com" url="http://www.axproject.com">AxProject</vendor>
 

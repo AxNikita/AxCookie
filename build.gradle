@@ -4,7 +4,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.5.0'
 }
 
-group 'org.example'
+group 'com.axproject.axcookie'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -23,16 +23,11 @@ apply plugin: 'java'
 apply plugin: 'org.jetbrains.intellij'
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-
-//    localPath 'D:/IntelliJ IDEA Community Edition 2020.3'
-//    plugin = ['com.intellij.java']
-
     version '2021.1.1'
 }
 patchPluginXml {
     changeNotes """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
+      Save and share your code. Sending to mail.<br>"""
 }
 test {
     useJUnitPlatform()
