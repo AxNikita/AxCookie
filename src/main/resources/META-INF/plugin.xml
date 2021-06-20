@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>org.example.AxCookie</id>
     <name>AxCookie</name>
-    <vendor email="support@axcompany.com" url="http://www.axcompany.com">AxCompany</vendor>
+    <vendor email="axprojectgroup@gmail.com" url="http://www.axproject.com">AxProject</vendor>
 
     <description><![CDATA[
     Plugin for save and share your code. Sending to mail and social networks.

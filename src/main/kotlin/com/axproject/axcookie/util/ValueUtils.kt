@@ -14,7 +14,7 @@ class ValueUtils {
         const val BUTTON_COOKIE_IMAGE = "icon/cookie.png"
         const val BUTTON_COOKIE_TITLE = "Create Cookie"
         const val MESSAGES_COOKIE_TITLE = "Cookie"
-        const val MESSAGES_COOKIE_MESSAGE = "Cookie created!"
+        const val MESSAGES_COOKIE_MESSAGE = "This feature is still in development!"
 
         const val LABEL_CHECK_TITLE = "Your code added to the clipboard!"
 
